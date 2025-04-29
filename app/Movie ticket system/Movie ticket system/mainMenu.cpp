@@ -87,9 +87,55 @@ void startMenu() {
 					while (!(userData.eof())) {
 						userData >> user >> userPass;
 						if (compare(user, userName)) {
-
+							nCheck = 1;
+						}
+						if (compare(userPass, pass)) {
+							aCheck = 1;
 						}
 					}
+					userData.close();
+				}
+				if (nCheck == 1 and aCheck == 1) {
+					system("cls");
+					Menu am;
+					am.displayMenu();
+					system("cls");
+				}
+			}
+			else {
+				cout << "Permission denied!\n";
+				cout << " Press any key to go back: ";
+				system("cls");
+			}
+		}
+		else if (newCheck == 3) {
+			exit(0);
+		}
+		else {
+			int rCheck = 0;
+			int userSelect = 0;
+			cout << "Enter personal details" << endl;
+			Customer c2;
+			c2.getData();
+			getch();
+			system("cls");
+			cout << " 1. Display movies" << endl;
+			cout << " 2. Select movie" << endl;
+			cout << "3. Exit" << endl;
+			cin >> userSelect;
+			Movie m2;
+			Receipt r2;
+			Hall h2;
+
+			switch (userSelect) {
+			case 1:
+				system("cls");
+				m2.displayMovies();
+				cout << "Press 1 to select movie";
+				cin >> rCheck;
+				if (rCheck == 1) {
+
+					goto select;
 				}
 			}
 		}
