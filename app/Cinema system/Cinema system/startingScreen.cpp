@@ -5,19 +5,22 @@ using namespace std;
 
 void displayStartingScreen()
 {
-    printEndl(2);
-
-    
-    centerText("===========================================");
-    centerText("        MOVIE TICKET BOOKING SYSTEM         ");
-    centerText("===========================================");
+    string purpleColor = "\033[35m"; 
+    string whiteColor = "\033[37m";  
+    string resetColor = "\033[0m";   
 
     printEndl(2);
-    centerText("Select a choice:");
+
+    centerText(purpleColor + "===========================================" + resetColor);
+    centerText(purpleColor + "        MOVIE TICKET BOOKING SYSTEM         " + resetColor);
+    centerText(purpleColor + "===========================================" + resetColor);
+
+    printEndl(2);
+    centerText(whiteColor + "Select a choice:" + resetColor);
     printEndl(1);
 
-    centerText("1. SIGN UP");
-    centerText("2. LOGIN");
+    centerText(whiteColor + "1. SIGN UP" + resetColor);
+    centerText(whiteColor + "2. LOGIN" + resetColor);
 
     chooseAnswer();
     printEndl(2);
@@ -25,6 +28,9 @@ void displayStartingScreen()
 
 void chooseAnswer()
 {
+    string redColor = "\033[31m";     
+    string resetColor = "\033[0m";    
+
     int choice;
     bool isValid = false;
 
@@ -50,7 +56,7 @@ void chooseAnswer()
         }
         else
         {
-            cout << "Invalid choice! Choose 1 for SIGN UP or 2 for LOGIN." << endl;
+            cout << redColor << "Invalid choice! Choose 1 for SIGN UP or 2 for LOGIN." << resetColor << endl;
         }
     }
-};
+}

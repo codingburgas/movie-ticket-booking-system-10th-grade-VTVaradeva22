@@ -9,12 +9,18 @@ using namespace std;
 
 void displayLogin()
 {
+
+    string purpleColor = "\033[35m";
+    string redColor = "\033[31m";
+    string whiteColor = "\033[37m";
+    string resetColor = "\033[0m";
+
     loadAccounts();
 
     string username, password, role;
 
     printEndl(2);
-    centerText("=============== LOGIN ===============");
+    centerText(purpleColor + "=============== LOGIN ===============" + resetColor);
     printEndl(2);
 
     cout << "Enter username: ";
@@ -33,7 +39,7 @@ void displayLogin()
         centerText("2. Continue as Admin");
         printEndl(1);
         cout << "Enter your choice: ";
-        cin >> sessionChoice;
+        cin >> sessionChoice;   
 
         if (sessionChoice == 1)
         {

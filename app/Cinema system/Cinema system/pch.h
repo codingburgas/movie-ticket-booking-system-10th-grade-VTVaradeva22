@@ -4,7 +4,9 @@
 #include <string>
 #include <iomanip>
 
-void centerText(const std::string& text);
+using namespace std;
+
+void centerText(const string& text);
 void printEndl(int n);
-void printStrRepeat(const std::string& str, int count);
+void printStrRepeat(const string& str, int count);
 void clearScreen();

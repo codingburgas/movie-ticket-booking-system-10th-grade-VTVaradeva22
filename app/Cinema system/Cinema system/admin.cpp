@@ -1,11 +1,18 @@
 #include "admin.h"
+#include "pch.h"
 #include <iostream>
 using namespace std;
+
+
 
 void showAdminMenu(const string& username) {
     int choice;
     do {
-        cout << "\n=== ADMIN MENU ===\n";
+        cout << "\n";
+        centerText( "===========================================");
+        centerText( "             ADMIN MENU                    ");
+        centerText( "===========================================");
+
         cout << "1. Add movie\n";
         cout << "2. Remove movie\n";
         cout << "3. View movies\n";
@@ -28,10 +35,14 @@ void showAdminMenu(const string& username) {
            // bookMovie(username); 
             break;
         case 5:
-            cout << "Logging out...\n";
-            break;
+            cout << "Logging out and returning to the main screen...\n";
+            system("pause");
+            return; 
         default:
-            cout << "Invalid choice.\n";
+            cout << "Invalid choice! Enter a number between 1 and 5.\n";
+            system("pause");
+            break;
         }
-    } while (choice != 5);
+
+    } while (true);
 }
