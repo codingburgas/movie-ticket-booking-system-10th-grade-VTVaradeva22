@@ -4,6 +4,5 @@ int main()
 {
 
     displayStartingScreen();
-    void chooseAnswer();
+   
 }
-

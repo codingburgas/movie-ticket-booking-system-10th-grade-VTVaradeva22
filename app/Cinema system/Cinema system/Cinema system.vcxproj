@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7cb0e93b-467a-43a2-a652-68ad3dccdb9e}</ProjectGuid>
-    <RootNamespace>Movieticketsystem</RootNamespace>
+    <ProjectGuid>{76ebd0c1-47b0-410d-a2bd-695e771fee5c}</ProjectGuid>
+    <RootNamespace>Cinemasystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,18 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="account.cpp" />
     <ClCompile Include="admin.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mainMenu.cpp" />
+    <ClCompile Include="user.cpp" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="signUp.cpp" />
     <ClCompile Include="startingScreen.cpp" />
-    <ClCompile Include="user.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="account.h" />
     <ClInclude Include="admin.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="mainMenu.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="signUp.h" />
     <ClInclude Include="startingScreen.h" />
     <ClInclude Include="user.h" />

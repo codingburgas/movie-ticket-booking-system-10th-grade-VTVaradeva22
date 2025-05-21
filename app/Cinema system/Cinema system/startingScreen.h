@@ -1,8 +1,9 @@
+#pragma once
+
 
 #include "login.h"
 #include "signUp.h"
 
-#pragma once
-
 void displayStartingScreen();
 void chooseAnswer();
+
