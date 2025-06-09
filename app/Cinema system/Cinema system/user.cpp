@@ -1,4 +1,5 @@
 #include "user.h"
+#include "movies.h"
 #include "pch.h"
 #include <iostream>
 using namespace std;
@@ -28,7 +29,7 @@ void showUserMenu(const string& username) {
 
         switch (choice) {
         case 1:
-            // viewMovies();
+             viewMovies();
             break;
         case 2:
             // bookMovie(username);
