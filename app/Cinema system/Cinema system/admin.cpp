@@ -1,6 +1,7 @@
 #include "admin.h"
 #include "movies.h"
 #include "bookMovie.h"
+#include "addMovie.h"
 #include "pch.h"
 #include <iostream>
 using namespace std;
@@ -32,7 +33,7 @@ void showAdminMenu(const string& username) {
 
         switch (choice) {
         case 1:
-            // addMovie();
+             addMovie();
             break;
         case 2:
             // removeMovie();
