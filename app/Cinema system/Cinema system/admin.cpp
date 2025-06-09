@@ -1,5 +1,6 @@
 #include "admin.h"
 #include "movies.h"
+#include "bookMovie.h"
 #include "pch.h"
 #include <iostream>
 using namespace std;
@@ -40,7 +41,7 @@ void showAdminMenu(const string& username) {
             viewMovies();
             break;
         case 4:
-            // bookMovie(username);
+             bookMovie(username);
             break;
         case 5:
             cout << whiteColor << "Logging out and returning to the main screen..." << resetColor << endl;

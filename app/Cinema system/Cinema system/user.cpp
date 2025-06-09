@@ -1,5 +1,6 @@
 #include "user.h"
 #include "movies.h"
+#include "bookMovie.h"
 #include "pch.h"
 #include <iostream>
 using namespace std;
@@ -32,7 +33,7 @@ void showUserMenu(const string& username) {
              viewMovies();
             break;
         case 2:
-            // bookMovie(username);
+            bookMovie(username);
             break;
         case 3:
             cout << whiteColor << "Logging out and returning to the main screen..." << resetColor << endl;

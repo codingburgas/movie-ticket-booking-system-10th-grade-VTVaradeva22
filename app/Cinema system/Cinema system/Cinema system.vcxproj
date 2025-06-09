@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="account.cpp" />
     <ClCompile Include="admin.cpp" />
+    <ClCompile Include="bookMovie.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="movies.cpp" />
@@ -140,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="account.h" />
     <ClInclude Include="admin.h" />
+    <ClInclude Include="bookMovie.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="mainMenu.h" />
     <ClInclude Include="movies.h" />

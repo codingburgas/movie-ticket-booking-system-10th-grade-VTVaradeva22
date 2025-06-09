@@ -42,6 +42,9 @@
     <ClCompile Include="movies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bookMovie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="startingScreen.h">
@@ -69,6 +72,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="movies.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bookMovie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
