@@ -48,6 +48,9 @@
     <ClCompile Include="addMovie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="removeMovie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="startingScreen.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="addMovie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="removeMovie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
