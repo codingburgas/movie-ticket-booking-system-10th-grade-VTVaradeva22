@@ -1,22 +1,11 @@
 #include "movies.h"
 #include "pch.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 void viewMovies() {
-    string movies[10] = {
-    "1. Dune: Part Two (2024)",
-    "2. Oppenheimer (2023)",
-    "3. Barbie (2023)",
-    "4. The Batman (2022)",
-    "5. Spider-Man: No Way Home (2021)",
-    "6. Top Gun: Maverick (2022)",
-    "7. Avatar: The Way of Water (2022)",
-    "8. John Wick: Chapter 4 (2023)",
-    "9. Mission: Impossible – Dead Reckoning (2023)",
-    "10. Wonka (2023)"
-    };
-
     string purpleColor = "\033[35m";
     string whiteColor = "\033[37m";
     string resetColor = "\033[0m";
@@ -25,10 +14,35 @@ void viewMovies() {
     centerText(purpleColor + "========== AVAILABLE MOVIES ==========" + resetColor);
     printEndl(1);
 
-    for (const auto& movie : movies) {
-        centerText(whiteColor + movie + resetColor);
+    ifstream file("../Data/addMovies.csv");
+    string line;
+    int count = 1;
+
+    if (!file.is_open()) {
+        centerText("\033[31mFailed to open movies file.\033[0m");
+        printEndl(2);
+        return;
+    }
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string title, year, showtime, price;
+
+        getline(ss, title, '|');
+        getline(ss, year, '|');
+        getline(ss, showtime, '|');
+        getline(ss, price, '|');
+
+        string display = to_string(count) + ". " + title + " (" + year + ") - " + showtime + " - " + price + " BGN";
+        centerText(whiteColor + display + resetColor);
+        count++;
+    }
+
+    if (count == 1) {
+        centerText(whiteColor + "No movies available." + resetColor);
     }
 
     printEndl(2);
+    file.close();
     system("pause");
 }

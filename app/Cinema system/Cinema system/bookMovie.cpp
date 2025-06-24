@@ -2,6 +2,8 @@
 #include "pch.h"
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <vector>
 using namespace std;
 
 void bookMovie(const string& username) {
@@ -9,24 +11,36 @@ void bookMovie(const string& username) {
     string whiteColor = "\033[37m";
     string resetColor = "\033[0m";
 
-    string movies[10] = {
-        "Dune: Part Two (2024) - 18:00 - 12.00 BGN",
-        "Oppenheimer (2023) - 20:00 - 11.00 BGN",
-        "Barbie (2023) - 16:00 - 10.00 BGN",
-        "The Batman (2022) - 21:30 - 11.50 BGN",
-        "Spider-Man: No Way Home (2021) - 19:00 - 11.00 BGN",
-        "Top Gun: Maverick (2022) - 17:00 - 10.50 BGN",
-        "Avatar: The Way of Water (2022) - 18:30 - 12.50 BGN",
-        "John Wick: Chapter 4 (2023) - 20:30 - 11.50 BGN",
-        "Mission: Impossible – Dead Reckoning (2023) - 19:30 - 11.00 BGN",
-        "Wonka (2023) - 15:30 - 9.50 BGN"
-    };
+    vector<string> movies;
+
+    ifstream file("../Data/addMovies.csv");
+    string line;
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string title, year, showtime, price;
+
+        getline(ss, title, '|');
+        getline(ss, year, '|');
+        getline(ss, showtime, '|');
+        getline(ss, price, '|');
+
+        movies.push_back(title + " (" + year + ") - " + showtime + " - " + price + " BGN");
+    }
+    file.close();
+
+    if (movies.empty()) {
+        printEndl(1);
+        centerText("\033[31mNo movies available for booking.\033[0m");
+        printEndl(2);
+        return;
+    }
 
     printEndl(1);
     centerText(purpleColor + "========== BOOK A MOVIE ==========" + resetColor);
     printEndl(1);
 
-    for (int i = 0; i < 10; ++i) {
+    for (size_t i = 0; i < movies.size(); ++i) {
         centerText(whiteColor + to_string(i + 1) + ". " + movies[i] + resetColor);
     }
 
@@ -35,7 +49,7 @@ void bookMovie(const string& username) {
     cout << whiteColor << "Enter the number of the movie you want to book: " << resetColor;
     cin >> choice;
 
-    if (choice < 1 || choice > 10) {
+    if (choice < 1 || choice >(int)movies.size()) {
         printEndl(1);
         cout << purpleColor << "Invalid movie selection." << resetColor;
         printEndl(2);
