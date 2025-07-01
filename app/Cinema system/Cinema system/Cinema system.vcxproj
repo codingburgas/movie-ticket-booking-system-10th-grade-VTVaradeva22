@@ -136,7 +136,7 @@
     <ClCompile Include="movies.cpp" />
     <ClCompile Include="removeMovie.cpp" />
     <ClCompile Include="user.cpp" />
-    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="utils.cpp" />
     <ClCompile Include="signUp.cpp" />
     <ClCompile Include="startingScreen.cpp" />
   </ItemGroup>
@@ -146,9 +146,8 @@
     <ClInclude Include="admin.h" />
     <ClInclude Include="bookMovie.h" />
     <ClInclude Include="login.h" />
-    <ClInclude Include="mainMenu.h" />
     <ClInclude Include="movies.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="utils.h" />
     <ClInclude Include="removeMovie.h" />
     <ClInclude Include="signUp.h" />
     <ClInclude Include="startingScreen.h" />

@@ -1,6 +1,6 @@
+#include "utils.h"
+
 #pragma once
-#include <string>
 
-using namespace std;
-
+// Show user menu function
 void showUserMenu(const string& username);

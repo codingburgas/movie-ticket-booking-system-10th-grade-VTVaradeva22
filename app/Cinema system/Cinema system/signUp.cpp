@@ -1,20 +1,20 @@
 #include "signUp.h"
-#include "pch.h"
+#include "utils.h"
 #include "user.h"
 #include "admin.h"
 #include "account.h"
-#include <iostream>
-#include <string>
-using namespace std;
+
+// Function to display the sign up screen
 void displaySignUp()
 {
+    // Set color codes for console output
+    string purpleColor = "\033[35m"; // Purple text color
+    string redColor = "\033[31m"; // Red text color
+    string whiteColor = "\033[37m"; // White text color
+    string resetColor = "\033[0m"; // Reset color to default
 
-    string purpleColor = "\033[35m";
-    string redColor = "\033[31m";
-    string whiteColor = "\033[37m";
-    string resetColor = "\033[0m";
 
-
+    // Load all existing accounts from file
     loadAccounts();
 
     string username, password, confirmPassword, role;
@@ -34,11 +34,13 @@ void displaySignUp()
         bool passwordsMatch = false;
         while (!passwordsMatch)
         {
+            // Ask user to enter and confirm password
             cout << "Enter password: ";
             cin >> password;
             cout << "Confirm password: ";
             cin >> confirmPassword;
 
+            // Check if passwords match
             if (password != confirmPassword)
                 centerText("Passwords don't match! Try again.");
             else passwordsMatch = true;
@@ -47,23 +49,28 @@ void displaySignUp()
         bool validRole = false;
         while (!validRole)
         {
+            // Ask the user to choose a role: admin or user
             cout << "Choose role (admin/user): ";
             cin >> role;
-            for (auto& c : role) c = tolower(c);
+
+            for (auto& c : role) c = tolower(c);// Convert input to lowercase
+
+            // Validate role input
             if (role == "admin" || role == "user")
                 validRole = true;
             else
                 centerText("Invalid role! Choose 'admin' or 'user'.");
         }
 
+        // Register the new account
         if (registerAccount(username, password, role))
         {
             centerText("Sign-up successful! You are logged in as " + role + ".");
             printEndl(1);
             if (role == "admin")
-                showAdminMenu(username);
+                showAdminMenu(username); // Show admin menu
             else
-                showUserMenu(username);
+                showUserMenu(username); // Show user menu
         }
         else
             centerText("Error during registration.");

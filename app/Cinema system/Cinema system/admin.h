@@ -1,7 +1,6 @@
+#include "utils.h"
+
 #pragma once
-
-#include <string>
-
-using namespace std; 
-
+ 
+// Show admin menu function
 void showAdminMenu(const string& username);

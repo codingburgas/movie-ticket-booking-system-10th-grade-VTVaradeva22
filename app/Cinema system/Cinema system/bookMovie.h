@@ -1,6 +1,6 @@
+#include "utils.h"
+
 #pragma once
 
-#include <string>
-
-using namespace std;
+// Book movie function
 void bookMovie(const string& username);

@@ -1,5 +1,6 @@
+#include "utils.h"
+
 #pragma once
 
-#include <iostream>
-
+// Remove movie function
 void removeMovie();

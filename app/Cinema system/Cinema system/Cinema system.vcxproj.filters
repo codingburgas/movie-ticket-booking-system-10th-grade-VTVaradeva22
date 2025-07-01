@@ -27,7 +27,7 @@
     <ClCompile Include="signUp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="account.cpp">
@@ -62,7 +62,7 @@
     <ClInclude Include="signUp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="account.h">
@@ -72,9 +72,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="admin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="movies.h">

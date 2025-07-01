@@ -1,21 +1,23 @@
 #include "bookMovie.h"
-#include "pch.h"
-#include <iostream>
+#include "utils.h"
 #include <fstream>
 #include <sstream>
 #include <vector>
-using namespace std;
 
+// Function to book a movie
 void bookMovie(const string& username) {
-    string purpleColor = "\033[35m";
-    string whiteColor = "\033[37m";
-    string resetColor = "\033[0m";
+    string purpleColor = "\033[35m"; // Purple text color
+    string whiteColor = "\033[37m"; // White text color
+    string resetColor = "\033[0m"; // Reset color to default
+
 
     vector<string> movies;
 
+    // Read movies from file
     ifstream file("../Data/addMovies.csv");
     string line;
 
+    // Parse each movie line and add to vector
     while (getline(file, line)) {
         stringstream ss(line);
         string title, year, showtime, price;
@@ -29,6 +31,7 @@ void bookMovie(const string& username) {
     }
     file.close();
 
+    // If no movies available, show message and exit
     if (movies.empty()) {
         printEndl(1);
         centerText("\033[31mNo movies available for booking.\033[0m");
@@ -36,19 +39,24 @@ void bookMovie(const string& username) {
         return;
     }
 
+    // Display booking header
     printEndl(1);
     centerText(purpleColor + "========== BOOK A MOVIE ==========" + resetColor);
     printEndl(1);
 
-    for (size_t i = 0; i < movies.size(); ++i) {
+    // Show list of movies with numbers
+    for (size_t i = 0; i < movies.size(); i++) {
         centerText(whiteColor + to_string(i + 1) + ". " + movies[i] + resetColor);
     }
 
     printEndl(1);
+
+    // Ask user to select a movie by number
     int choice;
     cout << whiteColor << "Enter the number of the movie you want to book: " << resetColor;
     cin >> choice;
 
+    // Validate the movie choice
     if (choice < 1 || choice >(int)movies.size()) {
         printEndl(1);
         cout << purpleColor << "Invalid movie selection." << resetColor;
@@ -58,6 +66,7 @@ void bookMovie(const string& username) {
 
     string selectedMovie = movies[choice - 1];
 
+    // Ask user for booking type
     int method;
     printEndl(1);
     cout << whiteColor << "Booking type:" << resetColor << endl;
@@ -75,6 +84,8 @@ void bookMovie(const string& username) {
     }
     else if (method == 2) {
         bookingType = "Walk-in";
+
+        // Ask for payment method if walk-in
         int payChoice;
         printEndl(1);
         cout << whiteColor << "Payment method:" << resetColor << endl;
@@ -101,6 +112,7 @@ void bookMovie(const string& username) {
         return;
     }
 
+    // Save booking info to CSV file
     ofstream out("../Data/bookMovies.csv", ios::app);
     if (out.is_open()) {
         out << username << "," << selectedMovie << "," << bookingType << "," << paymentMethod << "\n";
@@ -114,5 +126,6 @@ void bookMovie(const string& username) {
     }
 
     printEndl(2);
+    out.close();
     system("pause");
 }

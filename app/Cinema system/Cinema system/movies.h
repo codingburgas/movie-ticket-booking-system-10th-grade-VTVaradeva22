@@ -1,7 +1,7 @@
+#include "utils.h"
+
 #pragma once
 
-#include <iostream>
-using namespace std;
-
+// View movies function
 void viewMovies();
 

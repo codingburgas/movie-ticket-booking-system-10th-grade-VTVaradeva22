@@ -1,18 +1,19 @@
 #include "addMovie.h"
-#include "pch.h"
-#include <iostream>
+#include "utils.h"
 #include <fstream>
-using namespace std;
 
+// Displays the title
 void displayAddMovieTitle() {
-    string resetColor = "\033[0m";
-    string purpleColor = "\033[35m";
+
+    string resetColor = "\033[0m"; // Reset color to default
+    string purpleColor = "\033[35m"; // Purple text color
 
     printEndl(1);
     centerText(purpleColor + "========== ADD A NEW MOVIE ==========" + resetColor);
     printEndl(2);
 }
 
+// Saves movie to a CSV file
 void createMovieFileEntry(const string& title, const string& year, const string& showtime, const string& price) {
     string resetColor = "\033[0m";
     string purpleColor = "\033[35m";
@@ -20,7 +21,7 @@ void createMovieFileEntry(const string& title, const string& year, const string&
     string redColor = "\033[31m";
 
     ofstream out("../Data/addMovies.csv", ios::app);
-    if (!out) {
+    if (out.fail()) {
         centerText(redColor + "Failed to open movies file for writing." + resetColor);
         printEndl(2);
         return;
@@ -33,6 +34,7 @@ void createMovieFileEntry(const string& title, const string& year, const string&
     printEndl(2);
 }
 
+// Adds a new movie
 void addMovie() {
     string resetColor = "\033[0m";
     string purpleColor = "\033[35m";
@@ -40,7 +42,7 @@ void addMovie() {
 
     displayAddMovieTitle();
 
-    cin.ignore();
+    cin.ignore(); // Clear input buffer
     string title, year, showtime, price;
 
     centerText(purpleColor + " Enter movie title: " + resetColor);
@@ -61,5 +63,6 @@ void addMovie() {
 
     createMovieFileEntry(title, year, showtime, price);
 
+    // Waits for user to press a key
     system("pause");
 }
